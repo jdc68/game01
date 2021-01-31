@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Undefined
+  - DestroyEffect
+  - ground
+  - enemy
+  - player
+  - projectile
+  - platform
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - player
+  - props
+  - background
+  - arrow
+  - bullet
+  - enemyBullet
+  - usedArrow
+  - enemy
+  - Ground
+  - lava
+  - postProcessing
+  - enemyBullterDeflected
+  - Camera
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: background
+    uniqueID: 497362665
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: props
+    uniqueID: 1963510357
+    locked: 0
+  - name: player
+    uniqueID: 3592086483
+    locked: 0
+  - name: ground
+    uniqueID: 2407452905
+    locked: 0
+  - name: vegetation
+    uniqueID: 68372203
+    locked: 0
+  - name: enemy
+    uniqueID: 4184047499
+    locked: 0
+  - name: lava
+    uniqueID: 3007528853
+    locked: 0
+  - name: rain
+    uniqueID: 1005539665
+    locked: 0
+  - name: UI
+    uniqueID: 1361044001
+    locked: 0
