@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: Planks
+  m_Name: school_wall_1 1
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -2280899634524853472, guid: 3c2ee21bb0f5eba4a9b6eea252311cf4,
+  m_DefaultSprite: {fileID: -6774502316213708554, guid: e82502b27b34f29498ae235d2baf4f94,
     type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: -2280899634524853472, guid: 3c2ee21bb0f5eba4a9b6eea252311cf4, type: 3}
-    - {fileID: 8423042016500499629, guid: 3c2ee21bb0f5eba4a9b6eea252311cf4, type: 3}
-    - {fileID: -4440713019547508406, guid: 3c2ee21bb0f5eba4a9b6eea252311cf4, type: 3}
-    - {fileID: -5524095821234437435, guid: 3c2ee21bb0f5eba4a9b6eea252311cf4, type: 3}
+    - {fileID: -6774502316213708554, guid: e82502b27b34f29498ae235d2baf4f94, type: 3}
+    - {fileID: -2330573429719780086, guid: e82502b27b34f29498ae235d2baf4f94, type: 3}
+    - {fileID: -5204358517506153059, guid: e82502b27b34f29498ae235d2baf4f94, type: 3}
+    - {fileID: 3062405841885936600, guid: e82502b27b34f29498ae235d2baf4f94, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5

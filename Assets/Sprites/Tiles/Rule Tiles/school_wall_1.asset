@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Untitled-1_4
+  m_Script: {fileID: 11500000, guid: 535f8e525ff367c4ba67961e201a05ed, type: 3}
+  m_Name: school_wall_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 2053864948220060426, guid: f65246b9f9923ab40963c289e8a0a0bb,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -35,3 +34,8 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
+  m_Sprites:
+  - {fileID: -6774502316213708554, guid: e82502b27b34f29498ae235d2baf4f94, type: 3}
+  - {fileID: -2330573429719780086, guid: e82502b27b34f29498ae235d2baf4f94, type: 3}
+  - {fileID: -5204358517506153059, guid: e82502b27b34f29498ae235d2baf4f94, type: 3}
+  - {fileID: 3062405841885936600, guid: e82502b27b34f29498ae235d2baf4f94, type: 3}
