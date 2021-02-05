@@ -22,6 +22,7 @@ public class Genji : MonoBehaviour
     public float dashCooldown;
     public bool onCooldown = false;
     public float timeLeft;
+    public ParticleSystem dustPS;
 
     private BoxCollider2D box;
     private CapsuleCollider2D capsule;
@@ -66,6 +67,7 @@ public class Genji : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, player.jumpSpeed / 1.5f);
             player.doubleJumping = true;
             player.canDoubleJump = false;
+            dustPS.Play();
         }
         if (player.grounded)
         {

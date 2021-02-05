@@ -49,6 +49,7 @@ public class PlayerMovementController : MonoBehaviour
     public Transform groundCheck;
     public Transform groundCheck_;
 
+    public ParticleSystem dustPS;
 
     private Collider2D[] enemies;
     private Rigidbody2D rb;
@@ -166,6 +167,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (!Input.GetKey(KeyCode.LeftShift) && Input.GetButton("Jump") && grounded && !ability)
             {
+                dustPS.Play();
                 canDoubleJump = true;
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
                 capsule.enabled = true;

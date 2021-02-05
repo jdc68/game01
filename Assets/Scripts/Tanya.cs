@@ -21,6 +21,7 @@ public class Tanya : MonoBehaviour
     public float stunDamage;
     public float stunHeight;
     public ParticleSystem landingSmoke;
+    public ParticleSystem dustPS;
 
     public JumpCharge jumpChargeController;
 
@@ -75,7 +76,7 @@ public class Tanya : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             jumpForce = jumpCharge;
-            
+            dustPS.Play();
             jumpCharge = 0;
             chargingJump = false;
             playerController.zoomMagnifier = 0;
