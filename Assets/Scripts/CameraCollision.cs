@@ -58,16 +58,4 @@ public class CameraCollision : MonoBehaviour
         else
             return false;
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.DrawWireSphere(Cam.transform.position, enemyDetectionRadius);
-    //    foreach (Collider2D enemy in enemiesClose)
-    //    {
-    //        if (!CanSee(enemy.gameObject))
-    //        {
-    //            Gizmos.DrawLine(Cam.transform.position, enemy.transform.position);
-    //        }
-    //    }
-    //}
 }
