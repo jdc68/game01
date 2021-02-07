@@ -24,7 +24,6 @@ public class Door : MonoBehaviour
         Vector2 distanceToPlayer = player.position - transform.position;
         if (distanceToPlayer.magnitude < playerDetectionRadius)
         {
-            Debug.Log("true");
             doorUI.gameObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -41,8 +40,6 @@ public class Door : MonoBehaviour
             }
         } else
         {
-            Debug.Log("false");
-
             doorUI.gameObject.SetActive(false);
         }
     }

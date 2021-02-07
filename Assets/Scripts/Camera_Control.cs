@@ -49,6 +49,9 @@ public class Camera_Control : MonoBehaviour
 
     Vector3 GetCentrePoint()
     {
+        if (targets.Length == 0)
+            return player.position;
+
         if (targets.Length == 1)
         {
             return targets[0].transform.position;
@@ -65,6 +68,7 @@ public class Camera_Control : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(player.position, overlapBoxSize);
+        if (player)
+            Gizmos.DrawWireCube(player.position, overlapBoxSize);
     }
 }

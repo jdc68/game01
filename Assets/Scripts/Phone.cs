@@ -8,43 +8,40 @@ public class Phone : MonoBehaviour
     public Transform pos1, pos2;
     public float phoneSpeed = 1f;
     public bool phoneUp = false;
+    Animator animator;
+    public bool calling = false;
+    public Sprite[] sprites;
 
-    // Start is called before the first frame update
     void Start()
     {
-        transform.position = pos2.position;
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse2) && !FindObjectOfType<GameManager>().dead)
         {
             if (phoneUp)
+            {
                 phoneUp = false;
+                animator.SetBool("phoneUp", false);
+            }
             else
+            {
                 phoneUp = true;
-        }
-    }
-
-    void FixedUpdate()
-    {
-        if (phoneUp)
-        {
-            Vector2 dir = pos1.position - transform.position;
-            if (transform.position.y <= pos1.position.y)
-            {
-                transform.Translate(dir.normalized * phoneSpeed, Space.World);
-            }
-        }
-        else
-        {
-            Vector2 dir = pos2.position - transform.position;
-            if (transform.position.y >= pos2.position.y)
-            {
-                transform.Translate(dir.normalized * phoneSpeed, Space.World);
+                animator.SetBool("phoneUp", true);
             }
         }
 
+        if (calling)
+        {
+            if (!FindObjectOfType<AudioManager>().GetComponents<AudioSource>()[32].isPlaying)
+                FindObjectOfType<AudioManager>().Play("phoneCall");
+            GetComponent<Image>().sprite = sprites[1];
+        } else
+        {
+            FindObjectOfType<AudioManager>().Stop("phoneCall");
+            GetComponent<Image>().sprite = sprites[0];
+        }
     }
 }

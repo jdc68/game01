@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private ColorAdjustments colorAdjustments;
     private DepthOfField depthOfField;
     public int coins;
+    public bool phoneWasCalled;
+    public Dialogue dialogue;
 
     void Start()
     {
@@ -22,7 +24,6 @@ public class GameManager : MonoBehaviour
     {
         if (!dead)
             deathScreen.gameObject.SetActive(false);
-
     }
 
     void FixedUpdate()
@@ -48,6 +49,13 @@ public class GameManager : MonoBehaviour
             deathScreen.gameObject.SetActive(true);
             deathScreen.GetComponent<ShowDeathScreen>().show();
         }   
+    }
+
+    public void AcceptCall()
+    {
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<Phone>().calling = false;
+        FindObjectOfType<AudioManager>().Play("beep");
     }
 
 }

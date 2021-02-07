@@ -26,7 +26,10 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer != 13 && collision.gameObject.layer != 17 && collision.gameObject.layer != 14)
+        if (collision.gameObject.layer != 13 
+            && collision.gameObject.layer != 14 
+            && collision.gameObject.layer != 17
+            && collision.gameObject.layer != 21)
         {
             GetComponent<CircleCollider2D>().enabled = false;
             rb.velocity = Vector2.zero;

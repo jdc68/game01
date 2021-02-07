@@ -1032,7 +1032,7 @@ MonoBehaviour:
     m_Bits: 1048576
   indicator: {fileID: 3933574897455610817}
   showIndicator: 0
-  minDistanceToCamera: 30
+  indicatorOpacityStrength: 1
 --- !u!1 &7849579999796200920
 GameObject:
   m_ObjectHideFlags: 0
