@@ -9,7 +9,10 @@ public class Coin : MonoBehaviour
         if (other.tag == "Player")
         {
             FindObjectOfType<AudioManager>().Play("Coin");
-            other.transform.parent.parent.GetComponent<Health>().coins++;
+            //other.transform.parent.parent.GetComponent<Health>().coins++;
+            Player.coins++;
+            Debug.Log(Player.coins);
+
             Destroy(gameObject);
         }
     }

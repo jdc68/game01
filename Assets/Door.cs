@@ -19,7 +19,13 @@ public class Door : MonoBehaviour
     private void Update()
 
     {
-        player = FindObjectOfType<PlayerMovementController>().transform;
+        if (!FindObjectOfType<characterSwitch>().dead)
+        {
+            player = FindObjectOfType<PlayerMovementController>().transform;
+        } else
+        {
+            return;
+        }
 
         Vector2 distanceToPlayer = player.position - transform.position;
         if (distanceToPlayer.magnitude < playerDetectionRadius)

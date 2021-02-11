@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms;
 public class Painting : MonoBehaviour
 {
     public Sprite[] sprites;
-    [Range(1, 13)]
+    [Range(1, 11)]
     public int painting;
     public SpriteRenderer spriteRenderer;
 

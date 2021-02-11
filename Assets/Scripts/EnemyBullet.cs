@@ -26,7 +26,7 @@ public class EnemyBullet : MonoBehaviour
         text.text = bulletDamage.ToString();
         Physics2D.IgnoreLayerCollision(13, 15);
         Physics2D.IgnoreLayerCollision(13, 20);
-
+        Physics2D.IgnoreLayerCollision(13, 21);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -60,6 +60,7 @@ public class EnemyBullet : MonoBehaviour
         if (deflected)
         {
             gameObject.layer = 19;
+            Physics2D.IgnoreLayerCollision(19, 21);
         }
         distanceTraveled++;
         if (distanceTraveled >= distanceToFly)

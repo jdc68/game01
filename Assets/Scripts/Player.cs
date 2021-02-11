@@ -5,40 +5,63 @@ using UnityEngine;
 using EZCameraShake;
 using System.Data.Common;
 using System.Linq;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     public float magnitude, roughness, fadein, fadeout;
     public GameObject parent;
-    public List<int> grades = new List<int>();
     public bool invincible;
 
-    public Health mutualGrades;
+    Healthbar healthbar;
+    public TMP_Text coinsText;
+    public ParticleSystem deathParticles;
+    bool deathParticlesPlayed;
+
     private SpriteRenderer spriteRenderer;
+
+    public static List<int> grades = new List<int>();
+    public static float currentHealth;
+    public static int coins;
+
+    public float maxHealth = 10.00f;
+    public float minHealth = 5.00f;
 
     private void Start()
     { 
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        healthbar = FindObjectOfType<Healthbar>();
         parent = transform.parent.gameObject;
+        currentHealth = maxHealth; // this is a problem. Need to implement singleton to avoid overriding health value on character switch
+        grades.Add(10);
     }
 
     private void Update()
     { 
         if (Input.GetKeyDown("g"))
         {
-            TakeDamage(1);
+            TakeDamage(9);
         }
+
+        coinsText.text = string.Concat("x" + coins.ToString());
+        deathParticles.transform.position = transform.position;
+        healthbar.SetHealth(currentHealth);
+        if (currentHealth < minHealth)
+        {
+            Die();
+        }
+
     }
 
     public void TakeDamage(int damage)
     {
         Shield shield = FindObjectOfType<Shield>();
-        if (mutualGrades.currentHealth >= 5f)
+        if (currentHealth >= 5f)
         {
             if (!shield && !invincible)
             {
-                mutualGrades.currentHealth = (damage + mutualGrades.currentHealth) / 2;
+                currentHealth = (damage + currentHealth) / 2;
+                Debug.Log("Current health: " + currentHealth);
                 if (damage < 9)
                 {
                     FindObjectOfType<AudioManager>().Play("Hurt");
@@ -51,12 +74,25 @@ public class Player : MonoBehaviour
                     StartCoroutine(hurtGFX());
                 }
                 grades.Add(damage);
-                mutualGrades.grades.Add(damage);
+                Debug.Log("Total grades: " + grades.Count);
             } else
             {
                 shield.TakeDamage(damage);
             }
         }
+    }
+
+    public void Die()
+    {
+        if (!deathParticlesPlayed)
+        {
+            deathParticles.Play();
+            transform.parent.gameObject.SetActive(false);
+            deathParticlesPlayed = true;
+        }
+        FindObjectOfType<AudioManager>().GetComponents<AudioSource>()[13].enabled = false;
+        FindObjectOfType<characterSwitch>().dead = true;
+        FindObjectOfType<GameManager>().GameOver();
     }
 
     IEnumerator hurtGFX()
