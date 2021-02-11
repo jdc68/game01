@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
         if (other.tag == "Player")
         {
             FindObjectOfType<AudioManager>().Play("Coin");
-            GameMaster.Instance.coins++;
+            ScoreManager.Instance.coins++;
 
             Destroy(gameObject);
         }

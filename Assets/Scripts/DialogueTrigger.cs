@@ -19,17 +19,16 @@ public class DialogueTrigger : MonoBehaviour
             if (!triggered)
             {
                 triggered = true;
-                if (!FindObjectOfType<GameManager>().phoneWasCalled && dialogue.phoneCall)
+                if (!PhoneManager.Instance.phoneWasCalled && dialogue.phoneCall)
                 {
-                    FindObjectOfType<GameManager>().phoneWasCalled = true;
-                    FindObjectOfType<GameManager>().dialogue = dialogue;
-                    FindObjectOfType<Phone>().GetComponent<Animator>().SetBool("phoneUp", true);
-                    FindObjectOfType<Phone>().calling = true;
+                    PhoneManager.Instance.phoneWasCalled = true;
+                    PhoneManager.Instance.nextDialogue = dialogue;
+                    PhoneManager.Instance.phoneUp = true;
+                    PhoneManager.Instance.calling = true;
                 } else
                 {
                     TriggerDialogue();
                 }
-                
             } else
             {
                 return;

@@ -18,7 +18,7 @@ public class Zoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!FindObjectOfType<GameManager>().dead)
+        if (!ScoreManager.Instance.isDead)
         {
             distance -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed;
             distance = Mathf.Clamp(distance, minZoom, maxZoom);

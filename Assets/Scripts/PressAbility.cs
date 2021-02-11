@@ -44,7 +44,7 @@ public class PressAbility : MonoBehaviour
         }
         if (!controlledByScript)
         {
-            if (instant && !FindObjectOfType<GameManager>().dead)
+            if (instant && !ScoreManager.Instance.isDead)
             {
                 if (Input.GetKeyDown(key))
                 {
@@ -56,7 +56,7 @@ public class PressAbility : MonoBehaviour
                 }
             } else
             {
-                if (Input.GetKey(key) && !onCooldown && !FindObjectOfType<GameManager>().dead)
+                if (Input.GetKey(key) && !onCooldown && !ScoreManager.Instance.isDead)
                 {
                     StartCoroutine(changeSprite());
                 }

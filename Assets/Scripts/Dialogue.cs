@@ -8,8 +8,8 @@ public class Dialogue
     public bool phoneCall;
     public string name;
 
-    [TextArea(3, 10)]
-    public string[] sentences;
+    //[TextArea(3, 10)]
+    //public string[] sentences;
 
     public VoiceLine[] lines;
 }

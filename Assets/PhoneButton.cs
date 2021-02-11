@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableButton : MonoBehaviour
+public class PhoneButton : MonoBehaviour
 {
-    public void Disable()
+    public void AcceptCall()
     {
+        PhoneManager.Instance.AcceptCall();
         gameObject.SetActive(false);
     }
 }

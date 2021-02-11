@@ -13,6 +13,7 @@ public class GameMaster : MonoBehaviour
             //create logic to create the instance
             if (_instance == null)
             {
+
                 GameObject go = new GameObject("GameManager");
                 go.AddComponent<GameMaster>();
             }

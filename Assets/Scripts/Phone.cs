@@ -7,9 +7,9 @@ public class Phone : MonoBehaviour
 {
     public Transform pos1, pos2;
     public float phoneSpeed = 1f;
-    public bool phoneUp = false;
+    //public bool phoneUp = false;
     Animator animator;
-    public bool calling = false;
+    //public bool calling = false;
     public Sprite[] sprites;
 
     void Start()
@@ -19,28 +19,28 @@ public class Phone : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse2) && !FindObjectOfType<GameManager>().dead)
+        if (Input.GetKeyDown(KeyCode.Mouse2) && !ScoreManager.Instance.isDead)
         {
-            if (phoneUp)
-            {
-                phoneUp = false;
-                animator.SetBool("phoneUp", false);
-            }
+            if (PhoneManager.Instance.phoneUp)
+                PhoneManager.Instance.phoneUp = false;
             else
-            {
-                phoneUp = true;
-                animator.SetBool("phoneUp", true);
-            }
+                PhoneManager.Instance.phoneUp = true;
         }
 
-        if (calling)
+        if (PhoneManager.Instance.phoneUp)
+            animator.SetBool("phoneUp", true);
+        else
+            animator.SetBool("phoneUp", false);
+
+        if (PhoneManager.Instance.calling )
         {
-            if (!FindObjectOfType<AudioManager>().GetComponents<AudioSource>()[32].isPlaying)
-                FindObjectOfType<AudioManager>().Play("phoneCall");
+            PhoneManager.Instance.phoneUp = true;
+            if (!AudioManager.Instance.GetComponents<AudioSource>()[32].isPlaying)
+                AudioManager.Instance.Play("phoneCall");
             GetComponent<Image>().sprite = sprites[1];
         } else
         {
-            FindObjectOfType<AudioManager>().Stop("phoneCall");
+            AudioManager.Instance.Stop("phoneCall");
             GetComponent<Image>().sprite = sprites[0];
         }
     }

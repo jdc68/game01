@@ -10,8 +10,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public float textSpeed;
 
-    public Queue<string> sentences;
-    Queue<Sound> voiceLines;
+    [SerializeField]Queue<string> sentences;
+    [SerializeField]Queue<Sound> voiceLines;
 
     private void Start()
     {
@@ -22,7 +22,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         if (dialogue.phoneCall)
-            FindObjectOfType<Phone>().GetComponent<Animator>().SetBool("phoneUp", true);
+            PhoneManager.Instance.phoneUp = true;
+            //FindObjectOfType<Phone>().GetComponent<Animator>().SetBool("phoneUp", true);
 
         Color color = new Color(0, 0, 0, .4f);
         nameText.transform.GetComponentInParent<Image>().color = color;
@@ -82,7 +83,8 @@ public class DialogueManager : MonoBehaviour
         nameText.transform.GetComponentInParent<Image>().color = color;
         nameText.text = "";
         dialogueText.text = "";
-        FindObjectOfType<Phone>().GetComponent<Animator>().SetBool("phoneUp", false);
+        //FindObjectOfType<Phone>().GetComponent<Animator>().SetBool("phoneUp", false);
+        PhoneManager.Instance.phoneUp = false;
         Debug.Log("end of conversation");
     }
 }

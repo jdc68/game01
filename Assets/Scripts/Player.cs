@@ -20,19 +20,16 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    //public static List<int> grades = new List<int>();
-    //public static int coins;
-
-    public float maxHealth = 10.00f;
-    public float minHealth = 5.00f;
-
     private void Start()
     { 
         spriteRenderer = GetComponent<SpriteRenderer>();
         healthbar = FindObjectOfType<Healthbar>();
         parent = transform.parent.gameObject;
-        //currentHealth = maxHealth; // this is a problem. Need to implement singleton to avoid overriding health value on character switch
-        //grades.Add(10);
+        if (ScoreManager.Instance.grades.Count == 0)
+        {
+            ScoreManager.Instance.grades.Add(10);
+            ScoreManager.Instance.currentHealth = ScoreManager.Instance.maxHealth;
+        }
     }
 
     private void Update()
@@ -42,10 +39,10 @@ public class Player : MonoBehaviour
             TakeDamage(9);
         }
 
-        coinsText.text = string.Concat("x" + GameMaster.Instance.coins.ToString());
+        coinsText.text = string.Concat("x" + ScoreManager.Instance.coins.ToString());
         deathParticles.transform.position = transform.position;
-        healthbar.SetHealth(GameMaster.Instance.currentHealth);
-        if (GameMaster.Instance.currentHealth < minHealth)
+        healthbar.SetHealth(ScoreManager.Instance.currentHealth);
+        if (ScoreManager.Instance.currentHealth < ScoreManager.Instance.minHealth)
         {
             Die();
         }
@@ -55,12 +52,12 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Shield shield = FindObjectOfType<Shield>();
-        if (GameMaster.Instance.currentHealth >= 5f)
+        if (ScoreManager.Instance.currentHealth >= 5f)
         {
             if (!shield && !invincible)
             {
-                GameMaster.Instance.currentHealth = (damage + GameMaster.Instance.currentHealth) / 2;
-                Debug.Log("Current health: " + GameMaster.Instance.currentHealth);
+                ScoreManager.Instance.currentHealth = (damage + ScoreManager.Instance.currentHealth) / 2;
+                Debug.Log("Current health: " + ScoreManager.Instance.currentHealth);
                 if (damage < 9)
                 {
                     FindObjectOfType<AudioManager>().Play("Hurt");
@@ -72,9 +69,7 @@ public class Player : MonoBehaviour
                     catch { }
                     StartCoroutine(hurtGFX());
                 }
-                //grades.Add(damage);
-                GameMaster.Instance.grades.Add(damage);
-                //Debug.Log("Total grades: " + grades.Count);
+                ScoreManager.Instance.grades.Add(damage);
             } else
             {
                 shield.TakeDamage(damage);

@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
-    public bool dead;
+    //public bool dead;
     public Canvas deathScreen;
     public Volume volume;
     private ColorAdjustments colorAdjustments;
@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!dead)
+        if (!ScoreManager.Instance.isDead)
             deathScreen.gameObject.SetActive(false);
     }
 
     void FixedUpdate()
     {
-        if (dead)
+        if (ScoreManager.Instance.isDead)
         {
             colorAdjustments.saturation.value -= 2;
             depthOfField.focusDistance.value -= 0.03f;
@@ -42,9 +42,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (!dead)
+        if (!ScoreManager.Instance.isDead)
         {
-            dead = true;
+            ScoreManager.Instance.isDead = true;
             deathScreen.gameObject.SetActive(true);
             deathScreen.GetComponent<ShowDeathScreen>().show();
         }   
@@ -53,7 +53,8 @@ public class GameManager : MonoBehaviour
     public void AcceptCall()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        FindObjectOfType<Phone>().calling = false;
+        //FindObjectOfType<Phone>().calling = false;
+        PhoneManager.Instance.calling = false;
         FindObjectOfType<AudioManager>().Play("beep");
     }
 

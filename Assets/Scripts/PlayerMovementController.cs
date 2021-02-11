@@ -35,6 +35,7 @@ public class PlayerMovementController : MonoBehaviour
     public float zoomDefault;
     public float zoomMagnifier = 0;
     public bool continuousJumping;
+    public bool customSpawn = false;
 
     private float move;
     public bool grounded;
@@ -109,6 +110,11 @@ public class PlayerMovementController : MonoBehaviour
         capsule = GetComponent<CapsuleCollider2D>();
 
         Physics2D.IgnoreLayerCollision(8, 15);
+
+        if (!customSpawn)
+        {
+            transform.parent.position = FindObjectOfType<PlayerRespawn>().transform.position;
+        }
     }
 
     private void Update()

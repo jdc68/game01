@@ -17,9 +17,9 @@ public class PlayerRespawn : MonoBehaviour
             Destroy(currentPlayer);
         }
         //Instantiate(smoke, transform.position, transform.rotation);
-        GameMaster.Instance.currentHealth = GameMaster.Instance.maxHealth;
+        ScoreManager.Instance.currentHealth = ScoreManager.Instance.maxHealth;
         currentPlayer = Instantiate(player, transform.position, transform.rotation);
-        FindObjectOfType<GameManager>().dead = false;
+        ScoreManager.Instance.isDead = false;
         FindObjectOfType<ShowDeathScreen>().hide();
     }
 

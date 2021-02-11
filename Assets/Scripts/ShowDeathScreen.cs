@@ -25,7 +25,7 @@ public class ShowDeathScreen : MonoBehaviour
     public void show()
     {
         buttons[1].gameObject.SetActive(true);
-        score.text = System.Math.Round(GameMaster.Instance.currentHealth, 2).ToString().ToString();
+        score.text = System.Math.Round(ScoreManager.Instance.currentHealth, 2).ToString().ToString();
         title.gameObject.SetActive(true);
         subtitle.gameObject.SetActive(true);
         StartCoroutine(FadeTo(1, 0.8f));

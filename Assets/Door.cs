@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Door : MonoBehaviour
     Transform player;
     public Transform doorMain;
     public Canvas doorUI;
+    public string levelName;
 
 
     private void Start()
@@ -39,6 +41,7 @@ public class Door : MonoBehaviour
                     open = true;
                 } else
                 {
+                    SceneManager.LoadScene(levelName);
                     doorMain.rotation = Quaternion.identity;
                     open = false;
                 }

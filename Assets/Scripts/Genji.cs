@@ -45,7 +45,7 @@ public class Genji : MonoBehaviour
         else 
             closesetTarget = dashPoint.position;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !onCooldown && !FindObjectOfType<GameManager>().dead)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !onCooldown && !ScoreManager.Instance.isDead)
         {
             onCooldown = true;
             dashing = true;
