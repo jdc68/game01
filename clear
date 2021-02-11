@@ -1,0 +1,61 @@
+[33mcommit ac33246152dbfc481eb62b5f693b433629135b50[m[33m ([m[1;36mHEAD -> [m[1;32m2020.2.3f1[m[33m, [m[1;31morigin/2020.2.3f1[m[33m)[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Thu Feb 11 16:55:49 2021 +0200
+
+    Updated to Unity 2020.2.3f1
+
+[33mcommit 6fb2f04308b7a43ab7d32523f87bb29033a1e489[m[33m ([m[1;31morigin/singleton[m[33m, [m[1;32msingleton[m[33m)[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Thu Feb 11 16:09:38 2021 +0200
+
+    Moved Health script into Player
+
+[33mcommit d8b5ea6cd0f0eff964fba0d1acf8dab711a73539[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Sun Feb 7 05:59:51 2021 +0200
+
+    Added dialogue system, improved enemy bullets. Closes #4, closes #10
+
+[33mcommit fdaaf1b50eb1837ac09e55c93212132895423e58[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Sat Feb 6 02:55:04 2021 +0200
+
+    Added door GFX
+
+[33mcommit d85011ab03fa28f0a21928b21e7f8bfa9108fe28[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Fri Feb 5 23:01:38 2021 +0200
+
+    Added Multitarget Camera, closes #11
+
+[33mcommit db7529d2d287fb0aeea308a3c11f171d696f9241[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Fri Feb 5 16:44:41 2021 +0200
+
+    Added jumpling dust particles, closes #9
+    
+    Running particles look trash
+
+[33mcommit 038d97afb7ab58992eedc52331c72f178c879258[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Sun Jan 31 23:48:56 2021 +0200
+
+    Added more props to classroom
+
+[33mcommit e4b91b5b642954b44b3881c6fdd63eefc6f413b2[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Sun Jan 31 18:48:22 2021 +0200
+
+    Add props to classroom
+
+[33mcommit 3dbf2db5edda1c8c256545e879cb4f09f1b77042[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Sun Jan 31 15:34:48 2021 +0200
+
+    Update 0.unity
+
+[33mcommit 72e985b4bfc50f4011a4e863a3cf9c54de603511[m
+Author: JDC <deniscernat@gmail.com>
+Date:   Sun Jan 31 15:14:17 2021 +0200
+
+    Initial commit

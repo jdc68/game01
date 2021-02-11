@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour
         if (Time.time > timeToFire)
         {
             EnemyBullet bulletInstance = Instantiate(bullet, firePoint.position, Quaternion.identity);
-            float playerCurrentHealth = Player.currentHealth;
+            float playerCurrentHealth = GameMaster.Instance.currentHealth;
             bulletInstance.bulletDamage = Random.Range(min, Mathf.RoundToInt(playerCurrentHealth));
             timeToFire = Time.time + 1 / fireRate;
         }

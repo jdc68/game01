@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public Volume volume;
     private ColorAdjustments colorAdjustments;
     private DepthOfField depthOfField;
-    public int coins;
     public bool phoneWasCalled;
     public Dialogue dialogue;
 
